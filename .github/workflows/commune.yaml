@@ -1,0 +1,13 @@
+name: Commune
+
+on:
+  push:
+    branches:
+      - commune
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Test."
+
