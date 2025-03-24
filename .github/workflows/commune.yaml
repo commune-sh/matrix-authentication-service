@@ -166,7 +166,6 @@ jobs:
           for arch in aarch64; do
             mkdir -p dist/${arch}/share
             cp -r assets-dist/share/* dist/${arch}/share/
-            cp assets-dist/LICENSE dist/${arch}/LICENSE
             cp binary-$arch/mas-cli dist/${arch}/mas-cli
             chmod -R u=rwX,go=rX dist/${arch}/
             chmod u=rwx,go=rx dist/${arch}/mas-cli
