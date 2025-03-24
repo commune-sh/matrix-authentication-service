@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - commune
+    paths: 
+      - "crates/**"
+      - "Cargo.toml"
+      - "Cargo.lock"
+      - "templates/**"
+      - "frontend/**"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -64,7 +70,6 @@ jobs:
           cp -r frontend/dist/ assets-dist/share/assets
           cp -r templates/ assets-dist/share/templates
           cp -r translations/ assets-dist/share/translations
-          cp LICENSE assets-dist/LICENSE
           chmod -R u=rwX,go=rX assets-dist/
 
       - name: Upload assets
@@ -184,6 +189,6 @@ jobs:
 
       - name: Upload binary 
         run: |
-          rsync -avz --progress mas-cli-aarch64-linux.tar.gz ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/home/${{ secrets.VPS_USER }}/
-          rsync -avz --progress mas-cli-aarch64-linux.tar.gz ${{ secrets.VPS_USER_DEV }}@${{ secrets.VPS_HOST_DEV }}:/home/${{ secrets.VPS_USER_DEV }}/
+          rsync -avz --progress mas-cli-aarch64-linux.tar.gz ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/home/${{ secrets.VPS_USER }}/mas/
+          rsync -avz --progress mas-cli-aarch64-linux.tar.gz ${{ secrets.VPS_USER_DEV }}@${{ secrets.VPS_HOST_DEV }}:/home/${{ secrets.VPS_USER_DEV }}/mas/
 
