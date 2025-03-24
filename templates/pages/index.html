@@ -11,16 +11,16 @@ Please see LICENSE in the repository root for full details.
 {% block content %}
   <main class="flex flex-col justify-center gap-6">
     <header class="page-heading">
+      <div class="icon">
+        {{ icon.commune() }}
+      </div>
       <div class="header">
-        <h1 class="title">{{ _("app.human_name") }}</h1>
-        <p class="text">
-          {{ _("app.technical_description", discovery_url=discovery_url) }}
-        </p>
+        <h1 class="title">Commune</h1>
       </div>
     </header>
 
     {% if current_session %}
-      <p class="cpd-text-body-md-regular">
+      <p class="cpd-text-body-md-regular pt-12">
         {{ _("mas.navbar.signed_in_as", username=current_session.user.username) }}
       </p>
 
