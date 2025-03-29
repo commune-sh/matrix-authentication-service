@@ -1,4 +1,4 @@
-name: Commune MAS Build & Deploy
+name: Commune Build & Deploy
 
 on:
   push:
@@ -138,7 +138,7 @@ jobs:
           path: target/${{ matrix.target }}/release/mas-cli
 
   assemble-archives:
-    name: Assemble release archives
+    name: Package files
     if: github.event_name == 'push' || github.event.label.name == 'Z-Build-Workflow'
     runs-on: ubuntu-24.04
 
