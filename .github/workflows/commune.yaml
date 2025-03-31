@@ -8,7 +8,6 @@ on:
       - "crates/**"
       - "Cargo.toml"
       - "Cargo.lock"
-      - "frontend/**"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

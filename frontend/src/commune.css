@@ -2,8 +2,10 @@
     --background: hsla(0, 0%, 0%, 1);
 }
 
-body {
-  background: var(--background);
+@media screen and (prefers-color-scheme: dark) {
+    :root {
+        --cpd-color-bg-canvas-default: var(--background);
+    }
 }
 
 input:-webkit-autofill,
