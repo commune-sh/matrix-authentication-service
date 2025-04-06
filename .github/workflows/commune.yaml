@@ -117,7 +117,7 @@ jobs:
           for arch in aarch64; do
             mkdir -p dist/${arch}/share
             cp -r assets-dist/share/* dist/${arch}/share/
-            cp ./mas-cli dist/${arch}/mas-cli
+            cp mas-cli dist/${arch}/mas-cli
             chmod -R u=rwX,go=rX dist/${arch}/
             chmod u=rwx,go=rx dist/${arch}/mas-cli
             tar -czvf mas-cli-${arch}-linux.tar.gz --owner=0 --group=0 -C dist/${arch}/ .
