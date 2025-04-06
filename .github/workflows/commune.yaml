@@ -73,17 +73,18 @@ jobs:
           path: assets-dist
 
   fetch-release:
-    - name: Download and extract mas-cli
-      run: |
-        curl -L https://github.com/element-hq/matrix-authentication-service/releases/download/unstable/mas-cli-aarch64-linux.tar.gz -o mas-cli.tar.gz
-        mkdir mas-cli-bin
-        tar -xzf mas-cli.tar.gz -C mas-cli-bin
+    steps:
+      - name: Download and extract mas-cli
+        run: |
+          curl -L https://github.com/element-hq/matrix-authentication-service/releases/download/unstable/mas-cli-aarch64-linux.tar.gz -o mas-cli.tar.gz
+          mkdir mas-cli-bin
+          tar -xzf mas-cli.tar.gz -C mas-cli-bin
 
-    - name: Upload mas-cli binary
-      uses: actions/upload-artifact@v4
-      with:
-        name: mas-cli
-        path: mas-cli-bin/mas-cli
+      - name: Upload mas-cli binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: mas-cli
+          path: mas-cli-bin/mas-cli
 
   assemble-archives:
     name: Package files
