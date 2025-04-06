@@ -1,13 +1,9 @@
-name: Commune Build & Deploy
+name: Commune Deploy
 
 on:
   push:
     branches:
       - commune
-    paths: 
-      - "crates/**"
-      - "Cargo.toml"
-      - "Cargo.lock"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -47,7 +43,7 @@ jobs:
 
   build-assets:
     name: Build assets
-    if: github.event_name == 'push' || github.event.label.name == 'Z-Build-Workflow'
+    if: github.event_name == 'push' 
     runs-on: ubuntu-24.04
 
     permissions:
@@ -76,72 +72,27 @@ jobs:
           name: assets
           path: assets-dist
 
-  build-binaries:
-    name: Build binaries
-    if: github.event_name == 'push' || github.event.label.name == 'Z-Build-Workflow'
-    runs-on: ubuntu-24.04-arm
+  fetch-release:
+    - name: Download and extract mas-cli
+      run: |
+        curl -L https://github.com/element-hq/matrix-authentication-service/releases/download/unstable/mas-cli-aarch64-linux.tar.gz -o mas-cli.tar.gz
+        mkdir mas-cli-bin
+        tar -xzf mas-cli.tar.gz -C mas-cli-bin
 
-    needs:
-      - compute-version
-
-    strategy:
-      matrix:
-        include:
-          - target: aarch64-unknown-linux-gnu
-
-    env:
-      VERGEN_GIT_DESCRIBE: ${{ needs.compute-version.outputs.describe }}
-      SOURCE_DATE_EPOCH: ${{ needs.compute-version.outputs.timestamp }}
-
-    permissions:
-      contents: read
-
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v4.2.2
-
-      - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@stable
-        with:
-          targets: |
-            ${{ matrix.target }}
-
-      - name: Setup sccache
-        uses: mozilla-actions/sccache-action@v0.0.8
-
-      - name: Install zig
-        uses: goto-bus-stop/setup-zig@v2
-        with:
-          version: 0.13.0
-
-      - name: Install cargo-zigbuild
-        uses: taiki-e/install-action@v2
-        with:
-          tool: cargo-zigbuild
-
-      - name: Build the binary
-        run: |
-          cargo zigbuild \
-            --release \
-            --target ${{ matrix.target }}.2.17 \
-            --no-default-features \
-            --features dist \
-            -p mas-cli
-
-      - name: Upload binary artifact
-        uses: actions/upload-artifact@v4.6.2
-        with:
-          name: binary-${{ matrix.target }}
-          path: target/${{ matrix.target }}/release/mas-cli
+    - name: Upload mas-cli binary
+      uses: actions/upload-artifact@v4
+      with:
+        name: mas-cli
+        path: mas-cli-bin/mas-cli
 
   assemble-archives:
     name: Package files
-    if: github.event_name == 'push' || github.event.label.name == 'Z-Build-Workflow'
+    if: github.event_name == 'push' 
     runs-on: ubuntu-24.04
 
     needs:
       - build-assets
-      - build-binaries
+      - fetch-release
 
     permissions:
       contents: read
@@ -156,15 +107,15 @@ jobs:
       - name: Download binary aarch64
         uses: actions/download-artifact@v4
         with:
-          name: binary-aarch64-unknown-linux-gnu
-          path: binary-aarch64
+          name: mas-cli
+          path: ./mas-cli
 
       - name: Create final archives
         run: |
           for arch in aarch64; do
             mkdir -p dist/${arch}/share
             cp -r assets-dist/share/* dist/${arch}/share/
-            cp binary-$arch/mas-cli dist/${arch}/mas-cli
+            cp ./mas-cli dist/${arch}/mas-cli
             chmod -R u=rwX,go=rX dist/${arch}/
             chmod u=rwx,go=rx dist/${arch}/mas-cli
             tar -czvf mas-cli-${arch}-linux.tar.gz --owner=0 --group=0 -C dist/${arch}/ .
