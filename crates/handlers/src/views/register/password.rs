@@ -18,7 +18,7 @@ use mas_axum_utils::{
     cookies::CookieJar,
     csrf::{CsrfExt, CsrfToken, ProtectedForm},
 };
-use mas_data_model::{CaptchaConfig, UserAgent};
+use mas_data_model::CaptchaConfig;
 use mas_i18n::DataLocale;
 use mas_matrix::HomeserverConnection;
 use mas_policy::Policy;
@@ -66,7 +66,7 @@ pub struct QueryParams {
     action: OptionalPostAuthAction,
 }
 
-#[tracing::instrument(name = "handlers.views.password_register.get", skip_all, err)]
+#[tracing::instrument(name = "handlers.views.password_register.get", skip_all)]
 pub(crate) async fn get(
     mut rng: BoxRng,
     clock: BoxClock,
@@ -118,7 +118,7 @@ pub(crate) async fn get(
     Ok((cookie_jar, Html(content)).into_response())
 }
 
-#[tracing::instrument(name = "handlers.views.password_register.post", skip_all, err)]
+#[tracing::instrument(name = "handlers.views.password_register.post", skip_all)]
 #[allow(clippy::too_many_lines, clippy::too_many_arguments)]
 pub(crate) async fn post(
     mut rng: BoxRng,
@@ -141,7 +141,7 @@ pub(crate) async fn post(
     cookie_jar: CookieJar,
     Form(form): Form<ProtectedForm<RegisterForm>>,
 ) -> Result<Response, FancyError> {
-    let user_agent = user_agent.map(|ua| UserAgent::parse(ua.as_str().to_owned()));
+    let user_agent = user_agent.map(|ua| ua.as_str().to_owned());
 
     let ip_address = activity_tracker.ip();
     if !site_config.password_registration_enabled {
@@ -239,7 +239,7 @@ pub(crate) async fn post(
                 email: Some(&form.email),
                 requester: mas_policy::Requester {
                     ip_address: activity_tracker.ip(),
-                    user_agent: user_agent.clone().map(|ua| ua.raw),
+                    user_agent: user_agent.clone(),
                 },
             })
             .await?;

@@ -17,7 +17,7 @@ use mas_axum_utils::{
     cookies::CookieJar,
     csrf::{CsrfExt, ProtectedForm},
 };
-use mas_data_model::{UserAgent, oauth2::LoginHint};
+use mas_data_model::oauth2::LoginHint;
 use mas_i18n::DataLocale;
 use mas_matrix::HomeserverConnection;
 use mas_router::{UpstreamOAuth2Authorize, UrlBuilder};
@@ -61,7 +61,7 @@ impl ToFormState for LoginForm {
     type Field = LoginFormField;
 }
 
-#[tracing::instrument(name = "handlers.views.login.get", skip_all, err)]
+#[tracing::instrument(name = "handlers.views.login.get", skip_all)]
 pub(crate) async fn get(
     mut rng: BoxRng,
     clock: BoxClock,
@@ -127,7 +127,7 @@ pub(crate) async fn get(
     .await
 }
 
-#[tracing::instrument(name = "handlers.views.login.post", skip_all, err)]
+#[tracing::instrument(name = "handlers.views.login.post", skip_all)]
 pub(crate) async fn post(
     mut rng: BoxRng,
     clock: BoxClock,
@@ -146,7 +146,7 @@ pub(crate) async fn post(
     user_agent: Option<TypedHeader<headers::UserAgent>>,
     Form(form): Form<ProtectedForm<LoginForm>>,
 ) -> Result<Response, FancyError> {
-    let user_agent = user_agent.map(|ua| UserAgent::parse(ua.as_str().to_owned()));
+    let user_agent = user_agent.map(|ua| ua.as_str().to_owned());
     if !site_config.password_login_enabled {
         // XXX: is it necessary to have better errors here?
         return Ok(StatusCode::METHOD_NOT_ALLOWED.into_response());
