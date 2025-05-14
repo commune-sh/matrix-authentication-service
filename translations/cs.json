@@ -101,9 +101,9 @@
       }
     },
     "device_display_name": {
-      "client_on_device": "%(client_name)s on %(device_name)s",
-      "name_for_platform": "%(name)s for %(platform)s",
-      "unknown_device": "Unknown device"
+      "client_on_device": "%(client_name)s na %(device_name)s",
+      "name_for_platform": "%(name)s pro %(platform)s",
+      "unknown_device": "Neznámé zařízení"
     },
     "email_in_use": {
       "description": "Pokud jste zapomněli přihlašovací údaje k účtu, můžete svůj účet obnovit. Můžete také začít znovu a použít jinou e-mailovou adresu.",
