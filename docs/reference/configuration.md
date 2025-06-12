@@ -232,6 +232,21 @@ secrets:
         -----END EC PRIVATE KEY-----
 ```
 
+### `secrets.encryption{_file}`
+
+The encryption secret used for encrypting cookies and database fields. It takes
+the form of a 32-bytes-long hex-encoded string. To provide the encryption secret
+via file, set `secrets.encryption_file` to the file path; alternatively use
+`secrets.encryption` for declaring the secret inline. The options
+`secrets.encryption_file` and `secrets.encryption` are mutually exclusive.
+
+If given via file, the encyption secret is only read at application startup.
+The secret is not updated when the content of the file changes.
+
+> ⚠️ **Warning** – Do not change the encryption secret after the initial start!
+> Changing the encryption secret afterwards will lead to a loss of all encrypted
+> information in the database.
+
 ### `secrets.keys`
 
 The service can use a number of key types for signing.
@@ -320,6 +335,14 @@ account:
   # Defaults to `false`.
   # This has no effect if password login is disabled.
   login_with_email_allowed: false
+
+  # Whether registration tokens are required for password registrations.
+  #
+  # Defaults to `false`.
+  #
+  # When enabled, users must provide a valid registration token during password
+  # registration. This has no effect if password registration is disabled.
+  registration_token_required: false
 ```
 
 ## `captcha`
@@ -712,7 +735,7 @@ upstream_oauth2:
       # Additional parameters to include in the authorization request
       #additional_authorization_parameters:
       #  foo: "bar"
-      
+
       # Whether the `login_hint` should be forwarded to the provider in the
       # authorization request.
       #forward_login_hint: false

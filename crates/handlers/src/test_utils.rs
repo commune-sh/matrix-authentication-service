@@ -136,6 +136,7 @@ pub fn test_site_config() -> SiteConfig {
         imprint: None,
         password_login_enabled: true,
         password_registration_enabled: true,
+        registration_token_required: false,
         email_change_allowed: true,
         displayname_change_allowed: true,
         password_change_allowed: true,
@@ -145,6 +146,7 @@ pub fn test_site_config() -> SiteConfig {
         minimum_password_complexity: 1,
         session_expiration: None,
         login_with_email_allowed: true,
+        plan_management_iframe_uri: None,
     }
 }
 

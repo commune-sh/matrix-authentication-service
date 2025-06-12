@@ -64,6 +64,9 @@ pub struct SiteConfig {
     /// Whether password registration is enabled.
     pub password_registration_enabled: bool,
 
+    /// Whether registration tokens are required for password registrations.
+    pub registration_token_required: bool,
+
     /// Whether users can change their email.
     pub email_change_allowed: bool,
 
@@ -90,4 +93,7 @@ pub struct SiteConfig {
 
     /// Whether users can log in with their email address.
     pub login_with_email_allowed: bool,
+
+    /// The iframe URL to show in the plan tab of the UI
+    pub plan_management_iframe_uri: Option<String>,
 }

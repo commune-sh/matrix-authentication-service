@@ -211,6 +211,7 @@ pub fn site_config_from_config(
         password_login_enabled: password_config.enabled(),
         password_registration_enabled: password_config.enabled()
             && account_config.password_registration_enabled,
+        registration_token_required: account_config.registration_token_required,
         email_change_allowed: account_config.email_change_allowed,
         displayname_change_allowed: account_config.displayname_change_allowed,
         password_change_allowed: password_config.enabled()
@@ -222,6 +223,7 @@ pub fn site_config_from_config(
         minimum_password_complexity: password_config.minimum_complexity(),
         session_expiration,
         login_with_email_allowed: account_config.login_with_email_allowed,
+        plan_management_iframe_uri: experimental_config.plan_management_iframe_uri.clone(),
     })
 }
 
