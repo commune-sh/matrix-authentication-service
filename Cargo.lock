@@ -96,7 +96,7 @@ dependencies = [
  "cfg-if",
  "http",
  "indexmap 2.9.0",
- "schemars",
+ "schemars 0.8.22",
  "serde",
  "serde_json",
  "serde_qs",
@@ -2812,7 +2812,7 @@ version = "0.20.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bf466541e9d546596ee94f9f69590f89473455f88372423e0008fc1a7daf100e"
 dependencies = [
- "schemars",
+ "schemars 0.8.22",
  "serde",
 ]
 
@@ -3113,7 +3113,7 @@ dependencies = [
 
 [[package]]
 name = "mas-axum-utils"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "anyhow",
  "axum",
@@ -3147,7 +3147,7 @@ dependencies = [
 
 [[package]]
 name = "mas-cli"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "anyhow",
  "axum",
@@ -3221,7 +3221,7 @@ dependencies = [
 
 [[package]]
 name = "mas-config"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "anyhow",
  "camino",
@@ -3241,7 +3241,7 @@ dependencies = [
  "rand_chacha 0.3.1",
  "rustls-pemfile",
  "rustls-pki-types",
- "schemars",
+ "schemars 0.8.22",
  "serde",
  "serde_json",
  "serde_with",
@@ -3253,7 +3253,7 @@ dependencies = [
 
 [[package]]
 name = "mas-context"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "console",
  "opentelemetry",
@@ -3269,7 +3269,7 @@ dependencies = [
 
 [[package]]
 name = "mas-data-model"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "base64ct",
  "chrono",
@@ -3290,7 +3290,7 @@ dependencies = [
 
 [[package]]
 name = "mas-email"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "async-trait",
  "lettre",
@@ -3301,7 +3301,7 @@ dependencies = [
 
 [[package]]
 name = "mas-handlers"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "aide",
  "anyhow",
@@ -3355,7 +3355,7 @@ dependencies = [
  "rand_chacha 0.3.1",
  "reqwest",
  "rustls",
- "schemars",
+ "schemars 0.8.22",
  "sentry",
  "serde",
  "serde_json",
@@ -3379,7 +3379,7 @@ dependencies = [
 
 [[package]]
 name = "mas-http"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "futures-util",
  "headers",
@@ -3400,7 +3400,7 @@ dependencies = [
 
 [[package]]
 name = "mas-i18n"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "camino",
  "icu_calendar",
@@ -3422,7 +3422,7 @@ dependencies = [
 
 [[package]]
 name = "mas-i18n-scan"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "camino",
  "clap",
@@ -3436,15 +3436,15 @@ dependencies = [
 
 [[package]]
 name = "mas-iana"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
- "schemars",
+ "schemars 0.8.22",
  "serde",
 ]
 
 [[package]]
 name = "mas-iana-codegen"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -3460,7 +3460,7 @@ dependencies = [
 
 [[package]]
 name = "mas-jose"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "base64ct",
  "chrono",
@@ -3477,7 +3477,7 @@ dependencies = [
  "rand 0.8.5",
  "rand_chacha 0.3.1",
  "rsa",
- "schemars",
+ "schemars 0.8.22",
  "sec1",
  "serde",
  "serde_json",
@@ -3490,7 +3490,7 @@ dependencies = [
 
 [[package]]
 name = "mas-keystore"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "aead",
  "base64ct",
@@ -3518,7 +3518,7 @@ dependencies = [
 
 [[package]]
 name = "mas-listener"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "anyhow",
  "bytes",
@@ -3543,7 +3543,7 @@ dependencies = [
 
 [[package]]
 name = "mas-matrix"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -3553,7 +3553,7 @@ dependencies = [
 
 [[package]]
 name = "mas-matrix-synapse"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -3570,7 +3570,7 @@ dependencies = [
 
 [[package]]
 name = "mas-oidc-client"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "assert_matches",
  "async-trait",
@@ -3606,14 +3606,14 @@ dependencies = [
 
 [[package]]
 name = "mas-policy"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "anyhow",
  "arc-swap",
  "mas-data-model",
  "oauth2-types",
  "opa-wasm",
- "schemars",
+ "schemars 0.8.22",
  "serde",
  "serde_json",
  "thiserror 2.0.12",
@@ -3623,7 +3623,7 @@ dependencies = [
 
 [[package]]
 name = "mas-router"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "axum",
  "serde",
@@ -3634,7 +3634,7 @@ dependencies = [
 
 [[package]]
 name = "mas-spa"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "camino",
  "serde",
@@ -3643,7 +3643,7 @@ dependencies = [
 
 [[package]]
 name = "mas-storage"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "async-trait",
  "chrono",
@@ -3665,7 +3665,7 @@ dependencies = [
 
 [[package]]
 name = "mas-storage-pg"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "async-trait",
  "chrono",
@@ -3692,7 +3692,7 @@ dependencies = [
 
 [[package]]
 name = "mas-tasks"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -3724,7 +3724,7 @@ dependencies = [
 
 [[package]]
 name = "mas-templates"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "anyhow",
  "arc-swap",
@@ -3754,7 +3754,7 @@ dependencies = [
 
 [[package]]
 name = "mas-tower"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "http",
  "opentelemetry",
@@ -4024,7 +4024,7 @@ dependencies = [
 
 [[package]]
 name = "oauth2-types"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "assert_matches",
  "base64ct",
@@ -4971,6 +4971,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "ref-cast"
+version = "1.0.24"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4a0ae411dbe946a674d89546582cea4ba2bb8defac896622d6496f14c23ba5cf"
+dependencies = [
+ "ref-cast-impl",
+]
+
+[[package]]
+name = "ref-cast-impl"
+version = "1.0.24"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1165225c21bff1f3bbce98f5a1f889949bc902d3575308cc7b0de30b4f6d27c7"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "regalloc2"
 version = "0.11.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5359,6 +5379,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "schemars"
+version = "0.9.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4cd191f9397d57d581cddd31014772520aa448f65ef991055d7f61582c65165f"
+dependencies = [
+ "dyn-clone",
+ "ref-cast",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "schemars_derive"
 version = "0.8.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5696,15 +5728,16 @@ dependencies = [
 
 [[package]]
 name = "serde_with"
-version = "3.12.0"
+version = "3.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d6b6f7f2fcb69f747921f79f3926bd1e203fce4fef62c268dd3abfb6d86029aa"
+checksum = "bf65a400f8f66fb7b0552869ad70157166676db75ed8181f8104ea91cf9d0b42"
 dependencies = [
  "base64",
  "chrono",
  "hex",
  "indexmap 1.9.3",
  "indexmap 2.9.0",
+ "schemars 0.9.0",
  "serde",
  "serde_derive",
  "serde_json",
@@ -5714,9 +5747,9 @@ dependencies = [
 
 [[package]]
 name = "serde_with_macros"
-version = "3.12.0"
+version = "3.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8d00caa5193a3c8362ac2b73be6b9e768aa5a4b2f721d8f4b339600c3cb51f8e"
+checksum = "81679d9ed988d5e9a5e6531dc3f2c28efbd639cbd1dfb628df08edea6004da77"
 dependencies = [
  "darling",
  "proc-macro2",
@@ -6171,7 +6204,7 @@ dependencies = [
 
 [[package]]
 name = "syn2mas"
-version = "0.17.1"
+version = "0.18.0-rc.0"
 dependencies = [
  "anyhow",
  "arc-swap",
@@ -7663,9 +7696,9 @@ dependencies = [
 
 [[package]]
 name = "wiremock"
-version = "0.6.3"
+version = "0.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "101681b74cd87b5899e87bcf5a64e83334dd313fcd3053ea72e6dba18928e301"
+checksum = "a2b8b99d4cdbf36b239a9532e31fe4fb8acc38d1897c1761e161550a7dc78e6a"
 dependencies = [
  "assert-json-diff",
  "async-trait",
