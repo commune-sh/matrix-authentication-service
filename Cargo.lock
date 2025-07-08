@@ -2361,9 +2361,9 @@ dependencies = [
 
 [[package]]
 name = "hyper-util"
-version = "0.1.14"
+version = "0.1.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dc2fdfdbff08affe55bb779f33b053aa1fe5dd5b54c257343c17edfa55711bdb"
+checksum = "7f66d5bd4c6f02bf0542fad85d626775bab9258cf795a4256dcaf3161114d1df"
 dependencies = [
  "base64",
  "bytes",
@@ -2801,6 +2801,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "io-uring"
+version = "0.7.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b86e202f00093dcba4275d4636b93ef9dd75d025ae560d2521b45ea28ab49013"
+dependencies = [
+ "bitflags",
+ "cfg-if",
+ "libc",
+]
+
+[[package]]
 name = "ipnet"
 version = "2.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3113,7 +3124,7 @@ dependencies = [
 
 [[package]]
 name = "mas-axum-utils"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "anyhow",
  "axum",
@@ -3147,7 +3158,7 @@ dependencies = [
 
 [[package]]
 name = "mas-cli"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "anyhow",
  "axum",
@@ -3221,7 +3232,7 @@ dependencies = [
 
 [[package]]
 name = "mas-config"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "anyhow",
  "camino",
@@ -3253,7 +3264,7 @@ dependencies = [
 
 [[package]]
 name = "mas-context"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "console",
  "opentelemetry",
@@ -3269,7 +3280,7 @@ dependencies = [
 
 [[package]]
 name = "mas-data-model"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "base64ct",
  "chrono",
@@ -3290,7 +3301,7 @@ dependencies = [
 
 [[package]]
 name = "mas-email"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "async-trait",
  "lettre",
@@ -3301,7 +3312,7 @@ dependencies = [
 
 [[package]]
 name = "mas-handlers"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "aide",
  "anyhow",
@@ -3379,7 +3390,7 @@ dependencies = [
 
 [[package]]
 name = "mas-http"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "futures-util",
  "headers",
@@ -3400,7 +3411,7 @@ dependencies = [
 
 [[package]]
 name = "mas-i18n"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "camino",
  "icu_calendar",
@@ -3422,7 +3433,7 @@ dependencies = [
 
 [[package]]
 name = "mas-i18n-scan"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "camino",
  "clap",
@@ -3436,7 +3447,7 @@ dependencies = [
 
 [[package]]
 name = "mas-iana"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "schemars 0.8.22",
  "serde",
@@ -3444,7 +3455,7 @@ dependencies = [
 
 [[package]]
 name = "mas-iana-codegen"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -3460,7 +3471,7 @@ dependencies = [
 
 [[package]]
 name = "mas-jose"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "base64ct",
  "chrono",
@@ -3490,7 +3501,7 @@ dependencies = [
 
 [[package]]
 name = "mas-keystore"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "aead",
  "base64ct",
@@ -3518,7 +3529,7 @@ dependencies = [
 
 [[package]]
 name = "mas-listener"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "anyhow",
  "bytes",
@@ -3543,7 +3554,7 @@ dependencies = [
 
 [[package]]
 name = "mas-matrix"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -3553,7 +3564,7 @@ dependencies = [
 
 [[package]]
 name = "mas-matrix-synapse"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -3570,7 +3581,7 @@ dependencies = [
 
 [[package]]
 name = "mas-oidc-client"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "assert_matches",
  "async-trait",
@@ -3606,7 +3617,7 @@ dependencies = [
 
 [[package]]
 name = "mas-policy"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "anyhow",
  "arc-swap",
@@ -3623,7 +3634,7 @@ dependencies = [
 
 [[package]]
 name = "mas-router"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "axum",
  "serde",
@@ -3634,7 +3645,7 @@ dependencies = [
 
 [[package]]
 name = "mas-spa"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "camino",
  "serde",
@@ -3643,7 +3654,7 @@ dependencies = [
 
 [[package]]
 name = "mas-storage"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "async-trait",
  "chrono",
@@ -3665,7 +3676,7 @@ dependencies = [
 
 [[package]]
 name = "mas-storage-pg"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "async-trait",
  "chrono",
@@ -3692,7 +3703,7 @@ dependencies = [
 
 [[package]]
 name = "mas-tasks"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -3724,7 +3735,7 @@ dependencies = [
 
 [[package]]
 name = "mas-templates"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "anyhow",
  "arc-swap",
@@ -3754,7 +3765,7 @@ dependencies = [
 
 [[package]]
 name = "mas-tower"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "http",
  "opentelemetry",
@@ -3843,9 +3854,9 @@ dependencies = [
 
 [[package]]
 name = "minijinja-contrib"
-version = "2.10.2"
+version = "2.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "457f85f9c4c5b17d11fcf9bbe7c0dbba64843c5ee040005956f1a510b6679fe2"
+checksum = "f93e5bfa889f16d8c10ec92ac964074a68a7206c0fd9748ff23a31942c85d97c"
 dependencies = [
  "minijinja",
  "serde",
@@ -4024,7 +4035,7 @@ dependencies = [
 
 [[package]]
 name = "oauth2-types"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "assert_matches",
  "base64ct",
@@ -5049,9 +5060,9 @@ checksum = "2b15c43186be67a4fd63bee50d0303afffcef381492ebe2c5d87f324e1b8815c"
 
 [[package]]
 name = "reqwest"
-version = "0.12.20"
+version = "0.12.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "eabf4c97d9130e2bf606614eb937e86edac8292eaa6f422f995d7e8de1eb1813"
+checksum = "cbc931937e6ca3a06e3b6c0aa7841849b160a90351d6ab467a8b9b9959767531"
 dependencies = [
  "base64",
  "bytes",
@@ -5135,9 +5146,9 @@ dependencies = [
 
 [[package]]
 name = "ruma-common"
-version = "0.15.2"
+version = "0.15.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6b75da013b362664c3e161662902e5da3f77e990525681b59c6035bac27e87b4"
+checksum = "52e4969d85f1915b666dfe7939141b874aacd4191f8ad86689d16bfbfa08a770"
 dependencies = [
  "as_variant",
  "base64",
@@ -5172,9 +5183,9 @@ dependencies = [
 
 [[package]]
 name = "ruma-macros"
-version = "0.15.1"
+version = "0.15.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c1182e83ee5cd10121974f163337b16af68a93eedfc7cdbdbd52307ac7e1d743"
+checksum = "5ff13fbd6045a7278533390826de316d6116d8582ed828352661337b0c422e1c"
 dependencies = [
  "cfg-if",
  "proc-macro-crate",
@@ -5382,6 +5393,18 @@ name = "schemars"
 version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4cd191f9397d57d581cddd31014772520aa448f65ef991055d7f61582c65165f"
+dependencies = [
+ "dyn-clone",
+ "ref-cast",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "schemars"
+version = "1.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "82d20c4491bc164fa2f6c5d44565947a52ad80b9505d8e36f8d54c27c739fcd0"
 dependencies = [
  "dyn-clone",
  "ref-cast",
@@ -5727,9 +5750,9 @@ dependencies = [
 
 [[package]]
 name = "serde_with"
-version = "3.13.0"
+version = "3.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bf65a400f8f66fb7b0552869ad70157166676db75ed8181f8104ea91cf9d0b42"
+checksum = "f2c45cd61fefa9db6f254525d46e392b852e0e61d9a1fd36e5bd183450a556d5"
 dependencies = [
  "base64",
  "chrono",
@@ -5737,6 +5760,7 @@ dependencies = [
  "indexmap 1.9.3",
  "indexmap 2.10.0",
  "schemars 0.9.0",
+ "schemars 1.0.4",
  "serde",
  "serde_derive",
  "serde_json",
@@ -5746,9 +5770,9 @@ dependencies = [
 
 [[package]]
 name = "serde_with_macros"
-version = "3.13.0"
+version = "3.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "81679d9ed988d5e9a5e6531dc3f2c28efbd639cbd1dfb628df08edea6004da77"
+checksum = "de90945e6565ce0d9a25098082ed4ee4002e047cb59892c318d66821e14bb30f"
 dependencies = [
  "darling",
  "proc-macro2",
@@ -6203,7 +6227,7 @@ dependencies = [
 
 [[package]]
 name = "syn2mas"
-version = "0.18.0"
+version = "0.19.0-rc.0"
 dependencies = [
  "anyhow",
  "arc-swap",
@@ -6418,17 +6442,19 @@ checksum = "1f3ccbac311fea05f86f61904b462b55fb3df8837a366dfc601a0161d0532f20"
 
 [[package]]
 name = "tokio"
-version = "1.45.1"
+version = "1.46.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "75ef51a33ef1da925cea3e4eb122833cb377c61439ca401b770f54902b806779"
+checksum = "0cc3a2344dafbe23a245241fe8b09735b521110d30fcefbbd5feb1797ca35d17"
 dependencies = [
  "backtrace",
  "bytes",
+ "io-uring",
  "libc",
  "mio",
  "parking_lot",
  "pin-project-lite",
  "signal-hook-registry",
+ "slab",
  "socket2",
  "tokio-macros",
  "windows-sys 0.52.0",
