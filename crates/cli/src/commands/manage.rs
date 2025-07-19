@@ -149,6 +149,10 @@ enum Subcommand {
     UnlockUser {
         /// User to unlock
         username: String,
+
+        /// Whether to reactivate the user if it had been deactivated
+        #[arg(long)]
+        reactivate: bool,
     },
 
     /// Register a user
@@ -219,8 +223,10 @@ impl Options {
                 let _span =
                     info_span!("cli.manage.set_password", user.username = %username).entered();
 
-                let database_config = DatabaseConfig::extract_or_default(figment)?;
-                let passwords_config = PasswordsConfig::extract_or_default(figment)?;
+                let database_config = DatabaseConfig::extract_or_default(figment)
+                    .map_err(anyhow::Error::from_boxed)?;
+                let passwords_config = PasswordsConfig::extract_or_default(figment)
+                    .map_err(anyhow::Error::from_boxed)?;
 
                 let mut conn = database_connection_from_config(&database_config).await?;
                 let password_manager = password_manager_from_config(&passwords_config).await?;
@@ -260,7 +266,8 @@ impl Options {
                 )
                 .entered();
 
-                let database_config = DatabaseConfig::extract_or_default(figment)?;
+                let database_config = DatabaseConfig::extract_or_default(figment)
+                    .map_err(anyhow::Error::from_boxed)?;
                 let mut conn = database_connection_from_config(&database_config).await?;
                 let txn = conn.begin().await?;
                 let mut repo = PgRepository::from_conn(txn);
@@ -314,7 +321,8 @@ impl Options {
                 admin,
                 device_id,
             } => {
-                let database_config = DatabaseConfig::extract_or_default(figment)?;
+                let database_config = DatabaseConfig::extract_or_default(figment)
+                    .map_err(anyhow::Error::from_boxed)?;
                 let mut conn = database_connection_from_config(&database_config).await?;
                 let txn = conn.begin().await?;
                 let mut repo = PgRepository::from_conn(txn);
@@ -372,7 +380,8 @@ impl Options {
                     (Some(_), true) => unreachable!(), // This should be handled by the clap group
                 };
 
-                let database_config = DatabaseConfig::extract_or_default(figment)?;
+                let database_config = DatabaseConfig::extract_or_default(figment)
+                    .map_err(anyhow::Error::from_boxed)?;
                 let mut conn = database_connection_from_config(&database_config).await?;
                 let txn = conn.begin().await?;
                 let mut repo = PgRepository::from_conn(txn);
@@ -399,7 +408,8 @@ impl Options {
 
             SC::ProvisionAllUsers => {
                 let _span = info_span!("cli.manage.provision_all_users").entered();
-                let database_config = DatabaseConfig::extract_or_default(figment)?;
+                let database_config = DatabaseConfig::extract_or_default(figment)
+                    .map_err(anyhow::Error::from_boxed)?;
                 let mut conn = database_connection_from_config(&database_config).await?;
                 let mut txn = conn.begin().await?;
 
@@ -425,7 +435,8 @@ impl Options {
             SC::KillSessions { username, dry_run } => {
                 let _span =
                     info_span!("cli.manage.kill_sessions", user.username = username).entered();
-                let database_config = DatabaseConfig::extract_or_default(figment)?;
+                let database_config = DatabaseConfig::extract_or_default(figment)
+                    .map_err(anyhow::Error::from_boxed)?;
                 let mut conn = database_connection_from_config(&database_config).await?;
                 let txn = conn.begin().await?;
                 let mut repo = PgRepository::from_conn(txn);
@@ -497,7 +508,8 @@ impl Options {
                 deactivate,
             } => {
                 let _span = info_span!("cli.manage.lock_user", user.username = username).entered();
-                let config = DatabaseConfig::extract_or_default(figment)?;
+                let config = DatabaseConfig::extract_or_default(figment)
+                    .map_err(anyhow::Error::from_boxed)?;
                 let mut conn = database_connection_from_config(&config).await?;
                 let txn = conn.begin().await?;
                 let mut repo = PgRepository::from_conn(txn);
@@ -527,9 +539,14 @@ impl Options {
                 Ok(ExitCode::SUCCESS)
             }
 
-            SC::UnlockUser { username } => {
-                let _span = info_span!("cli.manage.lock_user", user.username = username).entered();
-                let config = DatabaseConfig::extract_or_default(figment)?;
+            SC::UnlockUser {
+                username,
+                reactivate,
+            } => {
+                let _span =
+                    info_span!("cli.manage.unlock_user", user.username = username).entered();
+                let config = DatabaseConfig::extract_or_default(figment)
+                    .map_err(anyhow::Error::from_boxed)?;
                 let mut conn = database_connection_from_config(&config).await?;
                 let txn = conn.begin().await?;
                 let mut repo = PgRepository::from_conn(txn);
@@ -540,10 +557,14 @@ impl Options {
                     .await?
                     .context("User not found")?;
 
-                warn!(%user.id, "User scheduling user reactivation");
-                repo.queue_job()
-                    .schedule_job(&mut rng, &clock, ReactivateUserJob::new(&user))
-                    .await?;
+                if reactivate {
+                    warn!(%user.id, "Scheduling user reactivation");
+                    repo.queue_job()
+                        .schedule_job(&mut rng, &clock, ReactivateUserJob::new(&user))
+                        .await?;
+                } else {
+                    repo.user().unlock(user).await?;
+                }
 
                 repo.into_inner().commit().await?;
 
@@ -562,9 +583,12 @@ impl Options {
                 ignore_password_complexity,
             } => {
                 let http_client = mas_http::reqwest_client();
-                let password_config = PasswordsConfig::extract_or_default(figment)?;
-                let database_config = DatabaseConfig::extract_or_default(figment)?;
-                let matrix_config = MatrixConfig::extract(figment)?;
+                let password_config = PasswordsConfig::extract_or_default(figment)
+                    .map_err(anyhow::Error::from_boxed)?;
+                let database_config = DatabaseConfig::extract_or_default(figment)
+                    .map_err(anyhow::Error::from_boxed)?;
+                let matrix_config =
+                    MatrixConfig::extract(figment).map_err(anyhow::Error::from_boxed)?;
 
                 let password_manager = password_manager_from_config(&password_config).await?;
                 let homeserver = homeserver_connection_from_config(&matrix_config, http_client);
