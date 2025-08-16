@@ -3116,7 +3116,7 @@ dependencies = [
 
 [[package]]
 name = "mas-axum-utils"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "anyhow",
  "axum",
@@ -3150,7 +3150,7 @@ dependencies = [
 
 [[package]]
 name = "mas-cli"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "anyhow",
  "axum",
@@ -3224,7 +3224,7 @@ dependencies = [
 
 [[package]]
 name = "mas-config"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "anyhow",
  "camino",
@@ -3256,7 +3256,7 @@ dependencies = [
 
 [[package]]
 name = "mas-context"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "console",
  "opentelemetry",
@@ -3272,7 +3272,7 @@ dependencies = [
 
 [[package]]
 name = "mas-data-model"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "base64ct",
  "chrono",
@@ -3293,7 +3293,7 @@ dependencies = [
 
 [[package]]
 name = "mas-email"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "async-trait",
  "lettre",
@@ -3304,7 +3304,7 @@ dependencies = [
 
 [[package]]
 name = "mas-handlers"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "aide",
  "anyhow",
@@ -3384,7 +3384,7 @@ dependencies = [
 
 [[package]]
 name = "mas-http"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "futures-util",
  "headers",
@@ -3405,7 +3405,7 @@ dependencies = [
 
 [[package]]
 name = "mas-i18n"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "camino",
  "icu_calendar",
@@ -3427,7 +3427,7 @@ dependencies = [
 
 [[package]]
 name = "mas-i18n-scan"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "camino",
  "clap",
@@ -3441,7 +3441,7 @@ dependencies = [
 
 [[package]]
 name = "mas-iana"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "schemars 0.8.22",
  "serde",
@@ -3449,7 +3449,7 @@ dependencies = [
 
 [[package]]
 name = "mas-iana-codegen"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -3465,7 +3465,7 @@ dependencies = [
 
 [[package]]
 name = "mas-jose"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "base64ct",
  "chrono",
@@ -3495,7 +3495,7 @@ dependencies = [
 
 [[package]]
 name = "mas-keystore"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "aead",
  "base64ct",
@@ -3523,7 +3523,7 @@ dependencies = [
 
 [[package]]
 name = "mas-listener"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "anyhow",
  "bytes",
@@ -3548,7 +3548,7 @@ dependencies = [
 
 [[package]]
 name = "mas-matrix"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -3558,7 +3558,7 @@ dependencies = [
 
 [[package]]
 name = "mas-matrix-synapse"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -3575,7 +3575,7 @@ dependencies = [
 
 [[package]]
 name = "mas-oidc-client"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "assert_matches",
  "async-trait",
@@ -3611,7 +3611,7 @@ dependencies = [
 
 [[package]]
 name = "mas-policy"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "anyhow",
  "arc-swap",
@@ -3628,7 +3628,7 @@ dependencies = [
 
 [[package]]
 name = "mas-router"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "axum",
  "serde",
@@ -3639,7 +3639,7 @@ dependencies = [
 
 [[package]]
 name = "mas-spa"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "camino",
  "serde",
@@ -3648,7 +3648,7 @@ dependencies = [
 
 [[package]]
 name = "mas-storage"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "async-trait",
  "chrono",
@@ -3670,7 +3670,7 @@ dependencies = [
 
 [[package]]
 name = "mas-storage-pg"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "async-trait",
  "chrono",
@@ -3697,7 +3697,7 @@ dependencies = [
 
 [[package]]
 name = "mas-tasks"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -3729,7 +3729,7 @@ dependencies = [
 
 [[package]]
 name = "mas-templates"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "anyhow",
  "arc-swap",
@@ -3759,7 +3759,7 @@ dependencies = [
 
 [[package]]
 name = "mas-tower"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "http",
  "opentelemetry",
@@ -3840,6 +3840,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4e60ac08614cc09062820e51d5d94c2fce16b94ea4e5003bb81b99a95f84e876"
 dependencies = [
  "memo-map",
+ "percent-encoding",
  "self_cell",
  "serde",
  "serde_json",
@@ -4029,7 +4030,7 @@ dependencies = [
 
 [[package]]
 name = "oauth2-types"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "assert_matches",
  "base64ct",
@@ -5816,9 +5817,9 @@ checksum = "56199f7ddabf13fe5074ce809e7d3f42b42ae711800501b5b16ea82ad029c39d"
 
 [[package]]
 name = "slab"
-version = "0.4.10"
+version = "0.4.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "04dc19736151f35336d325007ac991178d504a119863a2fcb3758cdb5e52c50d"
+checksum = "7a2ae44ef20feb57a68b23d846850f861394c2e02dc425a50098ae8c90267589"
 
 [[package]]
 name = "smallvec"
@@ -6165,7 +6166,7 @@ dependencies = [
 
 [[package]]
 name = "syn2mas"
-version = "1.0.0-rc.0"
+version = "1.0.0"
 dependencies = [
  "anyhow",
  "arc-swap",
