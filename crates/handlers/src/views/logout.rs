@@ -13,8 +13,9 @@ use mas_axum_utils::{
     cookies::CookieJar,
     csrf::{CsrfExt, ProtectedForm},
 };
+use mas_data_model::BoxClock;
 use mas_router::{PostAuthAction, UrlBuilder};
-use mas_storage::{BoxClock, BoxRepository, user::BrowserSessionRepository};
+use mas_storage::{BoxRepository, user::BrowserSessionRepository};
 
 use crate::BoundActivityTracker;
 
@@ -33,14 +34,14 @@ pub(crate) async fn post(
 
     if let Some(session_id) = session_info.current_session_id() {
         let maybe_session = repo.browser_session().lookup(session_id).await?;
-        if let Some(session) = maybe_session {
-            if session.finished_at.is_none() {
-                activity_tracker
-                    .record_browser_session(&clock, &session)
-                    .await;
+        if let Some(session) = maybe_session
+            && session.finished_at.is_none()
+        {
+            activity_tracker
+                .record_browser_session(&clock, &session)
+                .await;
 
-                repo.browser_session().finish(&clock, session).await?;
-            }
+            repo.browser_session().finish(&clock, session).await?;
         }
     }
 

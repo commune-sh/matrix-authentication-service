@@ -9,7 +9,7 @@ use std::{convert::Infallible, net::IpAddr, sync::Arc};
 use axum::extract::{FromRef, FromRequestParts};
 use ipnetwork::IpNetwork;
 use mas_context::LogContext;
-use mas_data_model::SiteConfig;
+use mas_data_model::{BoxClock, BoxRng, SiteConfig, SystemClock};
 use mas_handlers::{
     ActivityTracker, BoundActivityTracker, CookieManager, ErrorWrapper, GraphQLSchema, Limiter,
     MetadataCache, RequesterFingerprint, passwords::PasswordManager,
@@ -19,9 +19,7 @@ use mas_keystore::{Encrypter, Keystore};
 use mas_matrix::HomeserverConnection;
 use mas_policy::{Policy, PolicyFactory};
 use mas_router::UrlBuilder;
-use mas_storage::{
-    BoxClock, BoxRepository, BoxRepositoryFactory, BoxRng, RepositoryFactory, SystemClock,
-};
+use mas_storage::{BoxRepository, BoxRepositoryFactory, RepositoryFactory};
 use mas_storage_pg::PgRepositoryFactory;
 use mas_templates::Templates;
 use opentelemetry::KeyValue;
@@ -275,10 +273,10 @@ fn infer_client_ip(
 
     let peer = if let Some(info) = connection_info {
         // We can always trust the proxy protocol to give us the correct IP address
-        if let Some(proxy) = info.get_proxy_ref() {
-            if let Some(source) = proxy.source() {
-                return Some(source.ip());
-            }
+        if let Some(proxy) = info.get_proxy_ref()
+            && let Some(source) = proxy.source()
+        {
+            return Some(source.ip());
         }
 
         info.get_peer_addr().map(|addr| addr.ip())
