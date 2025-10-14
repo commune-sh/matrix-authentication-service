@@ -9,7 +9,7 @@ members = ["crates/*"]
 resolver = "2"
 
 # Updated in the CI with a `sed` command
-package.version = "1.3.0-rc.0"
+package.version = "1.4.0-rc.1"
 package.license = "AGPL-3.0-only OR LicenseRef-Element-Commercial"
 package.authors = ["Element Backend Team"]
 package.edition = "2024"
@@ -34,35 +34,35 @@ broken_intra_doc_links = "deny"
 [workspace.dependencies]
 
 # Workspace crates
-mas-axum-utils = { path = "./crates/axum-utils/", version = "=1.3.0-rc.0" }
-mas-cli = { path = "./crates/cli/", version = "=1.3.0-rc.0" }
-mas-config = { path = "./crates/config/", version = "=1.3.0-rc.0" }
-mas-context = { path = "./crates/context/", version = "=1.3.0-rc.0" }
-mas-data-model = { path = "./crates/data-model/", version = "=1.3.0-rc.0" }
-mas-email = { path = "./crates/email/", version = "=1.3.0-rc.0" }
-mas-graphql = { path = "./crates/graphql/", version = "=1.3.0-rc.0" }
-mas-handlers = { path = "./crates/handlers/", version = "=1.3.0-rc.0" }
-mas-http = { path = "./crates/http/", version = "=1.3.0-rc.0" }
-mas-i18n = { path = "./crates/i18n/", version = "=1.3.0-rc.0" }
-mas-i18n-scan = { path = "./crates/i18n-scan/", version = "=1.3.0-rc.0" }
-mas-iana = { path = "./crates/iana/", version = "=1.3.0-rc.0" }
-mas-iana-codegen = { path = "./crates/iana-codegen/", version = "=1.3.0-rc.0" }
-mas-jose = { path = "./crates/jose/", version = "=1.3.0-rc.0" }
-mas-keystore = { path = "./crates/keystore/", version = "=1.3.0-rc.0" }
-mas-listener = { path = "./crates/listener/", version = "=1.3.0-rc.0" }
-mas-matrix = { path = "./crates/matrix/", version = "=1.3.0-rc.0" }
-mas-matrix-synapse = { path = "./crates/matrix-synapse/", version = "=1.3.0-rc.0" }
-mas-oidc-client = { path = "./crates/oidc-client/", version = "=1.3.0-rc.0" }
-mas-policy = { path = "./crates/policy/", version = "=1.3.0-rc.0" }
-mas-router = { path = "./crates/router/", version = "=1.3.0-rc.0" }
-mas-spa = { path = "./crates/spa/", version = "=1.3.0-rc.0" }
-mas-storage = { path = "./crates/storage/", version = "=1.3.0-rc.0" }
-mas-storage-pg = { path = "./crates/storage-pg/", version = "=1.3.0-rc.0" }
-mas-tasks = { path = "./crates/tasks/", version = "=1.3.0-rc.0" }
-mas-templates = { path = "./crates/templates/", version = "=1.3.0-rc.0" }
-mas-tower = { path = "./crates/tower/", version = "=1.3.0-rc.0" }
-oauth2-types = { path = "./crates/oauth2-types/", version = "=1.3.0-rc.0" }
-syn2mas = { path = "./crates/syn2mas", version = "=1.3.0-rc.0" }
+mas-axum-utils = { path = "./crates/axum-utils/", version = "=1.4.0-rc.1" }
+mas-cli = { path = "./crates/cli/", version = "=1.4.0-rc.1" }
+mas-config = { path = "./crates/config/", version = "=1.4.0-rc.1" }
+mas-context = { path = "./crates/context/", version = "=1.4.0-rc.1" }
+mas-data-model = { path = "./crates/data-model/", version = "=1.4.0-rc.1" }
+mas-email = { path = "./crates/email/", version = "=1.4.0-rc.1" }
+mas-graphql = { path = "./crates/graphql/", version = "=1.4.0-rc.1" }
+mas-handlers = { path = "./crates/handlers/", version = "=1.4.0-rc.1" }
+mas-http = { path = "./crates/http/", version = "=1.4.0-rc.1" }
+mas-i18n = { path = "./crates/i18n/", version = "=1.4.0-rc.1" }
+mas-i18n-scan = { path = "./crates/i18n-scan/", version = "=1.4.0-rc.1" }
+mas-iana = { path = "./crates/iana/", version = "=1.4.0-rc.1" }
+mas-iana-codegen = { path = "./crates/iana-codegen/", version = "=1.4.0-rc.1" }
+mas-jose = { path = "./crates/jose/", version = "=1.4.0-rc.1" }
+mas-keystore = { path = "./crates/keystore/", version = "=1.4.0-rc.1" }
+mas-listener = { path = "./crates/listener/", version = "=1.4.0-rc.1" }
+mas-matrix = { path = "./crates/matrix/", version = "=1.4.0-rc.1" }
+mas-matrix-synapse = { path = "./crates/matrix-synapse/", version = "=1.4.0-rc.1" }
+mas-oidc-client = { path = "./crates/oidc-client/", version = "=1.4.0-rc.1" }
+mas-policy = { path = "./crates/policy/", version = "=1.4.0-rc.1" }
+mas-router = { path = "./crates/router/", version = "=1.4.0-rc.1" }
+mas-spa = { path = "./crates/spa/", version = "=1.4.0-rc.1" }
+mas-storage = { path = "./crates/storage/", version = "=1.4.0-rc.1" }
+mas-storage-pg = { path = "./crates/storage-pg/", version = "=1.4.0-rc.1" }
+mas-tasks = { path = "./crates/tasks/", version = "=1.4.0-rc.1" }
+mas-templates = { path = "./crates/templates/", version = "=1.4.0-rc.1" }
+mas-tower = { path = "./crates/tower/", version = "=1.4.0-rc.1" }
+oauth2-types = { path = "./crates/oauth2-types/", version = "=1.4.0-rc.1" }
+syn2mas = { path = "./crates/syn2mas", version = "=1.4.0-rc.1" }
 
 # OpenAPI schema generation and validation
 [workspace.dependencies.aide]
@@ -88,7 +88,7 @@ version = "0.1.89"
 
 # High-level error handling
 [workspace.dependencies.anyhow]
-version = "1.0.99"
+version = "1.0.100"
 
 # Assert that a value matches a pattern
 [workspace.dependencies.assert_matches]
@@ -96,11 +96,11 @@ version = "1.5.0"
 
 # HTTP router
 [workspace.dependencies.axum]
-version = "0.8.4"
+version = "0.8.6"
 
 # Extra utilities for Axum
 [workspace.dependencies.axum-extra]
-version = "0.10.1"
+version = "0.10.3"
 features = ["cookie-private", "cookie-key-expansion", "typed-header"]
 
 # Axum macros
@@ -137,7 +137,7 @@ version = "1.10.1"
 
 # UTF-8 paths
 [workspace.dependencies.camino]
-version = "1.2.0"
+version = "1.2.1"
 features = ["serde1"]
 
 # ChaCha20Poly1305 AEAD
@@ -167,7 +167,7 @@ features = ["serde", "clock"]
 
 # CLI argument parsing
 [workspace.dependencies.clap]
-version = "4.5.47"
+version = "4.5.48"
 features = ["derive"]
 
 # Object Identifiers (OIDs) as constants
@@ -354,7 +354,7 @@ features = ["serde"]
 
 # Email sending
 [workspace.dependencies.lettre]
-version = "0.11.18"
+version = "0.11.19"
 default-features = false
 features = [
     "tokio1-rustls",
@@ -396,36 +396,36 @@ version = "0.1.7"
 
 # OpenTelemetry
 [workspace.dependencies.opentelemetry]
-version = "0.30.0"
+version = "0.31.0"
 features = ["trace", "metrics"]
 [workspace.dependencies.opentelemetry-http]
-version = "0.30.0"
+version = "0.31.0"
 features = ["reqwest"]
 [workspace.dependencies.opentelemetry-jaeger-propagator]
-version = "0.30.0"
+version = "0.31.0"
 [workspace.dependencies.opentelemetry-otlp]
-version = "0.30.0"
+version = "0.31.0"
 default-features = false
 features = ["trace", "metrics", "http-proto"]
 [workspace.dependencies.opentelemetry-prometheus-text-exporter]
-version = "0.2.0"
+version = "0.2.1"
 [workspace.dependencies.opentelemetry-resource-detectors]
-version = "0.9.0"
+version = "0.10.0"
 [workspace.dependencies.opentelemetry-semantic-conventions]
-version = "0.30.0"
+version = "0.31.0"
 features = ["semconv_experimental"]
 [workspace.dependencies.opentelemetry-stdout]
-version = "0.30.0"
+version = "0.31.0"
 features = ["trace", "metrics"]
 [workspace.dependencies.opentelemetry_sdk]
-version = "0.30.0"
+version = "0.31.0"
 features = [
     "experimental_trace_batch_span_processor_with_async_runtime",
     "experimental_metrics_periodicreader_with_async_runtime",
     "rt-tokio",
 ]
 [workspace.dependencies.tracing-opentelemetry]
-version = "0.31.0"
+version = "0.32.0"
 default-features = false
 
 # P256 elliptic curve
@@ -454,11 +454,11 @@ features = ["std"]
 
 # Parser generator
 [workspace.dependencies.pest]
-version = "2.8.2"
+version = "2.8.3"
 
 # Pest derive macros
 [workspace.dependencies.pest_derive]
-version = "2.8.2"
+version = "2.8.3"
 
 # Pin projection
 [workspace.dependencies.pin-project-lite]
@@ -476,7 +476,7 @@ features = ["std", "pkcs5", "encryption"]
 
 # Public Suffix List
 [workspace.dependencies.psl]
-version = "2.1.141"
+version = "2.1.148"
 
 # High-precision clock
 [workspace.dependencies.quanta]
@@ -492,7 +492,7 @@ version = "0.6.4"
 
 # Regular expressions
 [workspace.dependencies.regex]
-version = "1.11.2"
+version = "1.11.3"
 
 # High-level HTTP client
 [workspace.dependencies.reqwest]
@@ -582,7 +582,7 @@ version = "0.42.0"
 
 # Serialization and deserialization
 [workspace.dependencies.serde]
-version = "1.0.225"
+version = "1.0.228"
 features = ["derive"] # Most of the time, if we need serde, we need derive
 
 # JSON serialization and deserialization
@@ -637,7 +637,7 @@ features = [
 
 # Custom error types
 [workspace.dependencies.thiserror]
-version = "2.0.16"
+version = "2.0.17"
 
 [workspace.dependencies.thiserror-ext]
 version = "0.3.0"
@@ -652,7 +652,7 @@ version = "0.1.17"
 
 # Tokio rustls integration
 [workspace.dependencies.tokio-rustls]
-version = "0.26.3"
+version = "0.26.4"
 
 # Tokio test utilities
 [workspace.dependencies.tokio-test]
@@ -735,7 +735,7 @@ version = "0.5.5"
 
 # Zero memory after use
 [workspace.dependencies.zeroize]
-version = "1.8.1"
+version = "1.8.2"
 
 # Password strength estimation
 [workspace.dependencies.zxcvbn]

@@ -20,7 +20,7 @@ use axum::{
 use hyper::header::{ACCEPT, AUTHORIZATION, CONTENT_TYPE};
 use indexmap::IndexMap;
 use mas_axum_utils::InternalError;
-use mas_data_model::{BoxRng, SiteConfig};
+use mas_data_model::{AppVersion, BoxRng, SiteConfig};
 use mas_http::CorsLayerExt;
 use mas_matrix::HomeserverConnection;
 use mas_policy::PolicyFactory;
@@ -91,6 +91,11 @@ fn finish(t: TransformOpenApi) -> TransformOpenApi {
             ),
             ..Default::default()
         })
+        .tag(Tag {
+            name: "upstream-oauth-provider".to_owned(),
+            description: Some("Manage upstream OAuth 2.0 providers".to_owned()),
+            ..Tag::default()
+        })
         .security_scheme("oauth2", oauth_security_scheme(None))
         .security_scheme(
             "token",
@@ -159,6 +164,7 @@ where
     UrlBuilder: FromRef<S>,
     Arc<PolicyFactory>: FromRef<S>,
     SiteConfig: FromRef<S>,
+    AppVersion: FromRef<S>,
 {
     // We *always* want to explicitly set the possible responses, beacuse the
     // infered ones are not necessarily correct
